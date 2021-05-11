@@ -67,8 +67,8 @@ dependencies {
     implementation("androidx.compose.material:material-icons-core:1.0.0-beta06")
     implementation("androidx.compose.material:material-icons-extended:1.0.0-beta06")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha04")
-    implementation("androidx.navigation:navigation-compose:1.0.0-alpha10")
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha06")
+    implementation("androidx.navigation:navigation-compose:1.0.0-alpha09")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha05")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -89,13 +89,13 @@ dependencies {
 
     // Coil
     implementation("io.coil-kt:coil:1.1.1")
-    implementation("com.google.accompanist:accompanist-coil:0.8.0")
+    implementation("com.google.accompanist:accompanist-coil:0.7.0")
 
     //Dagger - Hilt
     implementation("com.google.dagger:hilt-android:2.33-beta")
     kapt("com.google.dagger:hilt-android-compiler:2.33-beta")
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.0.0-beta01")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0-alpha01")
 
     implementation("com.android.support:palette-v7:28.0.0")

@@ -11,6 +11,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import dev.sagar.jetpackcomposepokedex.data.remote.responses.Pokemon
+import dev.sagar.jetpackcomposepokedex.pokemonlist.PokemonListScreen
 import dev.sagar.jetpackcomposepokedex.ui.theme.JetpackComposePokedexTheme
 
 @AndroidEntryPoint
@@ -21,8 +23,8 @@ class MainActivity : ComponentActivity() {
             JetpackComposePokedexTheme {
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "pokemon_list_screen") {
-                    composable("pokemon_list_Screen") {
-
+                    composable("pokemon_list_screen") {
+                        PokemonListScreen(navController = navController)
                     }
                     composable(
                         "pokemon_detail_screen/{dominantColor}/{pokemonName}",
