@@ -12,8 +12,10 @@ import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import dev.sagar.jetpackcomposepokedex.data.remote.responses.Pokemon
+import dev.sagar.jetpackcomposepokedex.pokemondetail.PokemonDetailScreen
 import dev.sagar.jetpackcomposepokedex.pokemonlist.PokemonListScreen
 import dev.sagar.jetpackcomposepokedex.ui.theme.JetpackComposePokedexTheme
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -26,11 +28,12 @@ class MainActivity : ComponentActivity() {
                     composable("pokemon_list_screen") {
                         PokemonListScreen(navController = navController)
                     }
+
                     composable(
                         "pokemon_detail_screen/{dominantColor}/{pokemonName}",
                         arguments = listOf(
                             navArgument("dominantColor") {
-                                type = NavType.BoolType
+                                type = NavType.IntType
                             },
                             navArgument("pokemonName") {
                                 type = NavType.StringType
@@ -39,11 +42,17 @@ class MainActivity : ComponentActivity() {
                     ) {
                         val dominantColor = remember {
                             val color = it.arguments?.getInt("dominantColor")
-                            color?.let { Color(it) ?: Color.White }
+                            color?.let { Color(it) } ?: Color.White
                         }
                         val pokemonName = remember {
                             it.arguments?.getString("pokemonName")
                         }
+
+                        PokemonDetailScreen(
+                            dominantColor = dominantColor,
+                            pokemonName = pokemonName?.toLowerCase(Locale.ROOT) ?: "",
+                            navController = navController
+                        )
                     }
                 }
             }
